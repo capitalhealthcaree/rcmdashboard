@@ -19,7 +19,7 @@ const Blog = () => {
 
   const pagePostsLimit = 12;
   async function fetchData() {
-    const res = await api.get("/blogs/getAll");
+    const res = await api.get("/blog/getAll");
     if (res.status === 200) {
       if (res && res.data && res.data.data) setList(res.data.data);
     }
@@ -31,7 +31,7 @@ const Blog = () => {
   const deletBlog = async (blogId) => {
     setDeletLoader(true);
     setDeletedBlogId(blogId);
-    const res = await api.delete("/blogs/" + blogId);
+    const res = await api.delete("/blog/delete/" + blogId);
     if (res.status === 200) {
       toast("Blog deleted success", {
         position: toast.POSITION.TOP_RIGHT,
@@ -43,7 +43,7 @@ const Blog = () => {
         progress: undefined,
       });
       setDeletLoader(false);
-      const res = await api.get("/blogs/getAll");
+      const res = await api.get("/blog/getAll");
       if (res.status === 200) {
         if (res && res.data && res.data.data) setList(res.data.data);
       }

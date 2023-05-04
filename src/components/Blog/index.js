@@ -25,7 +25,7 @@ const Blog = () => {
       .put(image)
       .on("state update", () => {
         storage
-          .ref("images")
+          .ref("rcmblogimages")
           .child(image.name)
           .getDownloadURL()
           .then(async (urls) => {
@@ -41,7 +41,7 @@ const Blog = () => {
             if (seoTitle.toString().length <= 70) {
               setSeoTitleError(false);
 
-              let res = await api.post("/blogs/create", finalData);
+              let res = await api.post("/blog/createBlog/", finalData);
               if (res.status === 200) {
                 toast("Blog created success", {
                   position: toast.POSITION.TOP_RIGHT,
@@ -121,35 +121,6 @@ const Blog = () => {
             </FormGroup>
           </Col>
           <Col xs="6">
-            {" "}
-            <FormGroup>
-              <Label for="category">category</Label>
-              <Input
-                type="select"
-                name="category"
-                id="category"
-                value={category}
-                onChange={(event) => {
-                  setCategory(event.target.value);
-                }}
-              >
-                <option>select</option>
-                <option value={"back-pain"}>Back Pain</option>
-                <option value={"leg-pain"}>Leg Pain</option>
-                <option value={"neck-pain"}>Neck Pain</option>
-                <option value={"knee-pain"}>Knee Pain</option>
-                <option value={"joint-pain"}>Joint Pain</option>
-                <option value={"shoulder-pain"}>Shoulder Pain</option>
-                <option value={"injury-treatments"}>Injury Treatment</option>
-                <option value={"health-tips"}>Health Tips</option>
-                <option value={"update"}>Update</option>
-                <option value={"treatments"}>Treatments</option>
-              </Input>
-            </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs="6">
             <FormGroup>
               <Label for="exampleEmail">Meta Description</Label>
               <Input
@@ -163,6 +134,8 @@ const Blog = () => {
               />
             </FormGroup>
           </Col>
+        </Row>
+        <Row>
           <Col xs="6">
             <FormGroup>
               <Label for="exampleFile">File</Label>

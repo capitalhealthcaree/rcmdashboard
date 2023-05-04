@@ -24,7 +24,6 @@ const BlogEdit = () => {
   const [foucKW, setFoucKW] = useState(data.foucKW);
   const [slug, setSlug] = useState(data.slug);
   const [seoTitle, setSeoTitle] = useState(data.seoTitle);
-  const [category, setCategory] = useState(data.category);
   const [image, setImage] = useState(data.image);
   const [seoTitleError, setSeoTitleError] = useState(false);
   const [loader, setLoader] = useState(false);
@@ -38,7 +37,6 @@ const BlogEdit = () => {
       foucKW: foucKW,
       slug: slug,
       seoTitle: seoTitle,
-      category: category,
       // image: urls,
     };
     setLoader(true);
@@ -118,35 +116,6 @@ const BlogEdit = () => {
             </FormGroup>
           </Col>
           <Col xs="6">
-            {" "}
-            <FormGroup>
-              <Label for="category">category</Label>
-              <Input
-                type="select"
-                name="category"
-                id="category"
-                value={category}
-                onChange={(event) => {
-                  setCategory(event.target.value);
-                }}
-              >
-                <option>select</option>
-                <option value={"back-pain"}>Back Pain</option>
-                <option value={"leg-pain"}>Leg Pain</option>
-                <option value={"neck-pain"}>Neck Pain</option>
-                <option value={"knee-pain"}>Knee Pain</option>
-                <option value={"joint-pain"}>Joint Pain</option>
-                <option value={"shoulder-pain"}>Shoulder Pain</option>
-                <option value={"injury-treatments"}>Injury Treatment</option>
-                <option value={"treatments"}>Treatments</option>
-                <option value={"health-tips"}>Health Tips</option>
-                <option value={"update"}>Update</option>
-              </Input>
-            </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs="6">
             <FormGroup>
               <Label for="exampleEmail">Meta Description</Label>
               <Input
@@ -160,6 +129,8 @@ const BlogEdit = () => {
               />
             </FormGroup>
           </Col>
+        </Row>
+        <Row>
           <Col xs="6">
             <FormGroup>
               <Label for="exampleFile">File</Label>

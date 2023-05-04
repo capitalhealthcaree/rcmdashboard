@@ -25,7 +25,7 @@ const News = () => {
       .put(image)
       .on("state update", () => {
         storage
-          .ref("newsimages")
+          .ref("rcmnewsimages")
           .child(image.name)
           .getDownloadURL()
           .then(async (urls) => {
@@ -40,7 +40,7 @@ const News = () => {
             if (seoTitle.toString().length <= 70) {
               setSeoTitleError(false);
 
-              let res = await api.post("/news/create/", finalData);
+              let res = await api.post("/news/createNews/", finalData);
               if (res.status === 200) {
                 toast("News created successfully", {
                   position: toast.POSITION.TOP_RIGHT,

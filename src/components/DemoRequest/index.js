@@ -7,6 +7,7 @@ import {
   PaginationItem,
   PaginationLink,
 } from "reactstrap";
+import { formatDate } from "../../utility";
 
 const ITEMS_PER_PAGE = 5;
 
@@ -49,6 +50,7 @@ const Appointment = () => {
     <Table bordered>
       <thead>
         <tr>
+          <th>Date & Time</th>
           <th>Name</th>
           <th>Phone</th>
           <th>Email</th>
@@ -60,6 +62,7 @@ const Appointment = () => {
       <tbody>
         {tableData.map((data, index) => (
           <tr key={index}>
+            <td>{formatDate(data.demoRequestCreatedAt)}</td>
             <td>{data.name}</td>
             <td>{data.phone}</td>
             <td>{data.email}</td>

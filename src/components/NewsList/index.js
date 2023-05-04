@@ -8,6 +8,7 @@ import api from "../../services/api";
 import "./style.css";
 import "react-pagination-bar/dist/index.css";
 import { useHistory } from "react-router-dom";
+import { formatDate } from "../../utility";
 
 const News = () => {
   const history = useHistory();
@@ -22,6 +23,7 @@ const News = () => {
   useEffect(() => {
     async function fetchData() {
       const res = await api.get("/news/getAll");
+
       if (res.status === 200) {
         if (res && res.data && res.data.data) setList(res.data.data);
       }
@@ -32,7 +34,7 @@ const News = () => {
   const deletBlog = async (blogId) => {
     setDeletLoader(true);
     setDeletedBlogId(blogId);
-    const res = await api.delete("/news/" + blogId);
+    const res = await api.delete("/news/delete/" + blogId);
     if (res.status === 200) {
       toast("News deleted success", {
         position: toast.POSITION.TOP_RIGHT,
@@ -99,6 +101,7 @@ const News = () => {
                 />
                 <h3>{data.seoTitle[0]}</h3>
                 <p>{data.category}</p>
+                <small>{formatDate(data.newsCreatedAt)}</small>
               </div>
             ))}
         </div>

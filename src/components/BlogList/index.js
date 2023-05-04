@@ -8,6 +8,7 @@ import api from "../../services/api";
 import "./style.css";
 import "react-pagination-bar/dist/index.css";
 import { useHistory } from "react-router-dom";
+import { formatDate } from "../../utility";
 
 const Blog = () => {
   const history = useHistory();
@@ -98,6 +99,7 @@ const Blog = () => {
                 />
                 <h3>{data.seoTitle[0]}</h3>
                 <p>{data.category}</p>
+                <small>{formatDate(data.blogCreatedAt)}</small>
               </div>
             ))}
         </div>

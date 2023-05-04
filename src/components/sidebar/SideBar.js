@@ -21,7 +21,7 @@ const SideBar = ({ isOpen, toggle }) => (
       <span color="info" onClick={toggle} style={{ color: "#fff" }}>
         &times;
       </span>
-      <h3>mymedicalbillingrcm</h3>
+      <h3>RCM</h3>
     </div>
     <div className="side-menu">
       <Nav vertical className="list-unstyled pb-3">

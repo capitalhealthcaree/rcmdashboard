@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "https://rcmbackend.vercel.app/api/v1/";
+const BASE_URL = "https://rcmbackend.onrender.com/";
 const LOCAL_URL = "http://localhost:5000";
 const config = {
   headers: {

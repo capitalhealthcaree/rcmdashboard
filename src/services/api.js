@@ -1,6 +1,5 @@
 import axios from "axios";
 const BASE_URL = "https://rcmbackend-a-pi.vercel.app/";
-const LOCAL_URL = "http://localhost:5000";
 const config = {
   headers: {
     "Access-Control-Allow-Origin": "*",
